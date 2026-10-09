@@ -7,3 +7,9 @@ One-page site for CWS Strategies (trade name of CWS, LLC), served by GitHub Page
 - `deploy.py` — optional: commit + push + Pages setup from a Mac with the `gh` CLI
 
 Every push to `main` republishes the site.
+
+## Credit link for client sites
+
+```html
+Site by <a href="https://cherlynnstevenson.com/">CWS Strategies</a>
+```
