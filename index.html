@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CWS Strategies | Web Design, Mobile Apps &amp; Salesforce</title>
-<meta name="description" content="CWS Strategies is a woman-owned Kentucky firm building websites, mobile apps, and Salesforce solutions for small businesses and nonprofits.">
+<title>CWS Strategies | Web Design, Apple Apps &amp; Salesforce Administrator</title>
+<meta name="description" content="CWS Strategies is a woman-owned Kentucky firm building websites, iPhone, iPad and Mac apps, and Salesforce Administrator support for small businesses and nonprofits.">
 <meta property="og:title" content="CWS Strategies">
-<meta property="og:description" content="Web design, mobile apps, and Salesforce for small businesses and nonprofits.">
+<meta property="og:description" content="Websites, Apple apps, and Salesforce Administrator support, built for small teams.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/source-serif-4-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -33,6 +33,7 @@ p{margin:0}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
 .skip{position:absolute;left:-9999px;top:0;background:var(--black);color:var(--white);padding:10px 16px;z-index:10}
 .skip:focus{left:16px;top:16px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* header */
 header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.2) blur(6px);z-index:5}
@@ -49,21 +50,21 @@ nav a:hover{color:var(--blue)}
 /* shared */
 .eyebrow{font:600 13px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--blue)}
 .rule{width:72px;height:3px;background:var(--black);border:0;margin:28px 0}
-.btn{display:inline-block;background:var(--blue);color:var(--white);text-decoration:none;font-weight:600;font-size:16px;padding:15px 30px;border-radius:4px;transition:background .15s}
+.btn{display:inline-block;background:var(--blue);color:var(--white);text-decoration:none;font:600 16px/1.2 var(--sans);padding:15px 30px;border:0;border-radius:4px;cursor:pointer;transition:background .15s}
 .btn:hover{background:var(--black)}
 .btn.ghost{background:transparent;color:var(--black);box-shadow:inset 0 0 0 2px var(--black)}
 .btn.ghost:hover{background:var(--black);color:var(--white)}
 section{padding:clamp(64px,9vw,112px) 0}
+section h2{font-size:clamp(32px,4vw,44px);margin-top:14px}
 
 /* hero */
 .hero h1{font-size:clamp(40px,6.4vw,72px);max-width:15ch;margin-top:20px}
 .hero .lead{font-size:clamp(19px,2vw,22px);max-width:40em;color:var(--ink)}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
 
-/* services */
+/* cards (services + work) */
 .services{background:var(--tint)}
 .services .eyebrow{color:var(--blue-dark)}
-.services h2,.work h2,.about h2,.contact h2{font-size:clamp(32px,4vw,44px);margin-top:14px}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:48px}
 @media (max-width:900px){.grid{grid-template-columns:1fr}}
 .card{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:6px;padding:32px 28px;display:flex;flex-direction:column;gap:14px}
@@ -73,16 +74,17 @@ section{padding:clamp(64px,9vw,112px) 0}
 .card li{margin:6px 0}
 
 /* work */
-.work .feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:48px;align-items:center;margin-top:40px;border:1px solid var(--line);border-radius:6px;padding:40px}
-@media (max-width:820px){.work .feature{grid-template-columns:1fr;padding:28px;gap:20px}}
-.work .client{font:600 clamp(26px,3vw,34px)/1.15 var(--serif);color:var(--black)}
-.work .tag{font-size:15px;color:var(--gray);margin-top:8px}
+.work .intro{max-width:44em;margin-top:18px;font-size:19px}
+.work .card{border-top-color:var(--black)}
+.work .card h3{font-size:26px}
+.work .tag{font-size:14px;letter-spacing:.04em;color:var(--gray);margin-top:-6px}
+.work .card .more{margin-top:auto;padding-top:6px;font-weight:600}
 
 /* about */
 .about .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:56px;margin-top:8px}
 @media (max-width:820px){.about .cols{grid-template-columns:1fr;gap:24px}}
 .about p+p{margin-top:16px}
-.people{display:grid;gap:20px;align-content:start}
+.people{display:grid;gap:20px;align-content:start;margin-top:32px}
 .person{border-left:3px solid var(--blue);padding-left:16px}
 .person b{display:block;font:600 22px/1.2 var(--serif);color:var(--black)}
 .person span{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
@@ -91,9 +93,31 @@ section{padding:clamp(64px,9vw,112px) 0}
 .contact{background:var(--black);color:var(--white)}
 .contact h2{color:var(--white)}
 .contact .eyebrow{color:#7FB8E6}
-.contact p{max-width:36em;color:#DADADA;margin-top:18px;font-size:19px}
-.contact .btn{margin-top:32px}
+.contact .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:56px;align-items:start}
+@media (max-width:860px){.contact .cols{grid-template-columns:1fr;gap:32px}}
+.contact .pitch{max-width:30em;color:#DADADA;margin-top:18px;font-size:19px}
+.cform{display:grid;gap:18px}
+.cform .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:560px){.cform .row{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-weight:600;font-size:15px;color:var(--white)}
+.field label .opt{font-weight:400;color:#BDBDBD}
+.field input,.field textarea{font:400 17px/1.4 var(--sans);color:var(--ink);background:var(--white);border:2px solid var(--white);border-radius:4px;padding:12px 14px;width:100%}
+.field textarea{min-height:150px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:3px solid #7FB8E6;outline-offset:2px}
+.field .err{display:none;font-size:14px;color:#FF9C94}
+.field.invalid input,.field.invalid textarea{border-color:#FF6B60}
+.field.invalid .err{display:block}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .contact .btn:hover{background:var(--white);color:var(--black)}
+.contact .btn[aria-disabled="true"]{background:#3A3A3A;color:#9A9A9A;cursor:not-allowed}
+.hint{font-size:14px;color:#BDBDBD}
+.form-status{font-size:15px;color:#FF9C94}
+.thanks{border:1px solid #3A3A3A;border-left:4px solid var(--blue);border-radius:6px;padding:32px}
+.thanks h3{color:var(--white);font-size:30px}
+.thanks p{color:#DADADA;margin-top:12px}
+.thanks:focus{outline:none}
 
 footer{padding:28px 0;font-size:14px;color:var(--gray);border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
@@ -122,9 +146,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   <section class="hero" id="top">
     <div class="wrap">
       <p class="eyebrow">Woman-owned &amp; operated · Kentucky</p>
-      <h1>Websites, apps, and Salesforce for small teams.</h1>
+      <h1>Websites, apps, and Salesforce, built for small teams.</h1>
       <hr class="rule">
-      <p class="lead">CWS Strategies brings enterprise-level technology to the organizations that usually can't afford it: small businesses and nonprofits. You work directly with the people doing the work, and everything is explained in plain language.</p>
+      <p class="lead">Big-company tech, sized for small businesses and nonprofits. You work directly with the people building it, and we explain everything in plain English, no jargon.</p>
       <div class="ctas">
         <a class="btn" href="#contact">Start a project</a>
         <a class="btn ghost" href="#services">See services</a>
@@ -135,36 +159,36 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   <section class="services" id="services" aria-labelledby="services-h">
     <div class="wrap">
       <p class="eyebrow">Services</p>
-      <h2 id="services-h">What we build</h2>
+      <h2 id="services-h">What we do</h2>
       <div class="grid">
         <article class="card">
           <span class="num">01</span>
           <h3>Web Design</h3>
-          <p>New sites and refreshes that are fast, accessible, and easy for your team to update.</p>
+          <p>Sites that load fast and work for everyone. When we're done, you choose: keep us on to handle updates, or take the reins yourself. We'll make sure your team knows how.</p>
           <ul>
-            <li>Website design and redesign</li>
-            <li>WordPress builds and migrations</li>
-            <li>Accessibility and mobile-friendly layouts</li>
+            <li>New sites and redesigns</li>
+            <li>Forms that feed straight into your inbox, email list, or Salesforce</li>
+            <li>Accessible on every screen, built on WordPress so your team can edit it</li>
           </ul>
         </article>
         <article class="card">
           <span class="num">02</span>
-          <h3>Mobile Apps</h3>
-          <p>Simple, focused apps that put your services in your customers' and members' pockets.</p>
+          <h3>Apple Apps</h3>
+          <p>Focused apps for iPhone, iPad, and Mac, without the bloat.</p>
           <ul>
-            <li>iPhone and Android apps</li>
-            <li>Web apps that work on any device</li>
-            <li>Connections to the tools you already use</li>
+            <li>iPhone and iPad apps</li>
+            <li>Native Mac apps</li>
+            <li>Hooks into the tools you already use</li>
           </ul>
         </article>
         <article class="card">
           <span class="num">03</span>
-          <h3>Salesforce</h3>
-          <p>Get more out of Salesforce without a full-time admin, from first setup to ongoing support.</p>
+          <h3>Salesforce Administrator</h3>
+          <p>All the value of a Salesforce Administrator, without adding one to payroll. We automate the busywork so your team can focus on customers, donors, and members.</p>
           <ul>
-            <li>Setup, cleanup, and administration</li>
-            <li>Custom development and automation</li>
-            <li>Nonprofit and small business editions</li>
+            <li>Automations that handle follow-ups, reminders, and approvals for you</li>
+            <li>Clean data and reports you can actually trust</li>
+            <li>Setup and support for Nonprofit Cloud and small business editions</li>
           </ul>
         </article>
       </div>
@@ -175,15 +199,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     <div class="wrap">
       <p class="eyebrow">Recent work</p>
       <h2 id="work-h">Built by CWS Strategies</h2>
-      <div class="feature">
-        <div>
-          <p class="client">Civics Alive Kentucky</p>
+      <p class="intro">Our Apple apps run on your own devices and iCloud. That means no servers to rent, no hosting bills, and no monthly fees just to keep the lights on. Your data stays yours.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Civics Alive Kentucky</h3>
           <p class="tag">Nonprofit · Website redesign</p>
-        </div>
-        <div>
-          <p>A modern, mobile-friendly refresh for a Kentucky nonprofit that teaches civics to people preparing for reentry, built so the team can easily share video and quotes.</p>
-          <p style="margin-top:20px"><a href="https://civicsalivekentucky.org" rel="noopener">Visit civicsalivekentucky.org →</a></p>
-        </div>
+          <p>A full redesign for a Kentucky nonprofit teaching civics to people preparing for reentry. Their team can post videos, quotes, and updates without waiting on a developer, and donations flow straight through Givebutter.</p>
+          <a class="more" href="https://civicsalivekentucky.org" rel="noopener">Visit the site →</a>
+        </article>
+        <article class="card">
+          <h3>IdeaCap</h3>
+          <p class="tag">iPhone &amp; Mac</p>
+          <p>Capture a thought, link, or photo in two taps, from the app, the share sheet, or Siri. Notes tag themselves and sync between iPhone and Mac through iCloud. There's no backend to pay for or maintain.</p>
+        </article>
+        <article class="card">
+          <h3>Foqus</h3>
+          <p class="tag">iPhone &amp; iPad · In TestFlight</p>
+          <p>A focus reader for PDFs, ebooks, and articles. It reads aloud with word-by-word highlighting and has speed-reading and bionic modes, built-in definitions, and break reminders. Everything runs on the device, even offline, so there's zero running cost.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -192,25 +225,69 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     <div class="wrap cols">
       <div>
         <p class="eyebrow">About</p>
-        <h2 id="about-h">Enterprise experience, small-team pace.</h2>
+        <h2 id="about-h">Big-company experience, small-team pace.</h2>
       </div>
       <div>
-        <p>CWS Strategies is a woman-owned Kentucky firm. We bring the discipline of large-scale technology programs to organizations with small teams and tight budgets.</p>
-        <p>Our Salesforce work draws on years of leading CRM strategy for a national wholesale business with hundreds of field reps and thousands of retail partners.</p>
-        <div class="people" style="margin-top:32px">
+        <p>CWS Strategies is a woman-owned Kentucky firm. We've run technology for organizations with hundreds of users, and we bring that same playbook to teams of five, fifty, or five hundred, at a price that fits a small budget.</p>
+        <p>Our Salesforce Administrator work comes from years of running Salesforce for a national wholesale business: hundreds of field reps, thousands of retail stores, and the automations that keep it all moving.</p>
+        <div class="people">
           <div class="person"><b>Cherlynn Stevenson</b><span>Founder &amp; President</span></div>
-          <div class="person"><b>Christian Stevenson</b><span>Digital &amp; Salesforce</span></div>
+          <div class="person"><b>Christian Stevenson</b><span>Salesforce Administrator · Web &amp; Apps</span></div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="contact" id="contact" aria-labelledby="contact-h">
-    <div class="wrap">
-      <p class="eyebrow">Contact</p>
-      <h2 id="contact-h">Have a project in mind?</h2>
-      <p>Tell us a little about your organization and what you need, and we'll be in touch.</p>
-      <a class="btn" href="https://docs.google.com/forms/d/1PrIn4W6V9gaVXf_VfboANiAx5K35rFqTsnJxs7jj0gA/viewform" target="_blank" rel="noopener">Start a project <span class="sr">(opens a form in a new tab)</span></a>
+    <div class="wrap cols">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-h">Got a project in mind?</h2>
+        <p class="pitch">Tell us about your organization and what's slowing your team down. We'll follow up with ideas, not a sales pitch.</p>
+      </div>
+
+      <div id="form-area">
+        <form class="cform" id="contact-form" novalidate>
+          <div class="row">
+            <div class="field" data-rule="required">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="120" aria-describedby="e-name" required>
+              <p class="err" id="e-name">Please enter your name.</p>
+            </div>
+            <div class="field" data-rule="email">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="200" aria-describedby="e-email" required>
+              <p class="err" id="e-email">Please enter a valid email address, like you@example.com.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field" data-rule="required">
+              <label for="f-org">Organization name</label>
+              <input id="f-org" name="org" type="text" autocomplete="organization" maxlength="160" aria-describedby="e-org" required>
+              <p class="err" id="e-org">Please enter your organization's name.</p>
+            </div>
+            <div class="field" data-rule="url">
+              <label for="f-site">Website <span class="opt">(optional)</span></label>
+              <input id="f-site" name="website" type="text" inputmode="url" autocomplete="url" maxlength="300" placeholder="example.org" aria-describedby="e-site">
+              <p class="err" id="e-site">That doesn't look like a web address. Try something like example.org.</p>
+            </div>
+          </div>
+          <div class="field" data-rule="message">
+            <label for="f-msg">What would you like to talk about?</label>
+            <textarea id="f-msg" name="message" maxlength="4000" aria-describedby="e-msg" required></textarea>
+            <p class="err" id="e-msg">Please add a sentence or two (at least 10 characters).</p>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-hp">Leave this field empty</label>
+            <input id="f-hp" name="fax" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="actions">
+            <button class="btn" type="submit" id="f-submit" aria-disabled="true" aria-describedby="f-hint">Send message</button>
+            <p class="hint" id="f-hint">Fill in the required fields to send.</p>
+          </div>
+          <p class="form-status" id="f-status" role="alert"></p>
+        </form>
+      </div>
     </div>
   </section>
 </main>
@@ -221,7 +298,102 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     <span>Woman-owned &amp; operated · Kentucky</span>
   </div>
 </footer>
-<style>.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
-<script>document.getElementById("yr").textContent=new Date().getFullYear()</script>
+
+<script>
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+(function () {
+  // Submissions go to the CWS Strategies contact Google Form, which runs the intake automation.
+  var FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScYDmCF14dDMJJ2Nt8sbKEqnm21TGS7uRCq6vpMyEAAnKSSEw/formResponse";
+  var ENTRY = { name: "entry.1776780043", email: "entry.1060079209", org: "entry.596398298", website: "entry.1288896526", message: "entry.1720886323" };
+
+  var form = document.getElementById("contact-form");
+  var button = document.getElementById("f-submit");
+  var hint = document.getElementById("f-hint");
+  var status = document.getElementById("f-status");
+  var loadedAt = Date.now();
+  var fields = Array.prototype.slice.call(form.querySelectorAll(".field"));
+
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var URL_RE = /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i;
+
+  function control(field) { return field.querySelector("input, textarea"); }
+  function isValid(field) {
+    var v = control(field).value.trim();
+    switch (field.dataset.rule) {
+      case "required": return v.length > 0;
+      case "email": return EMAIL_RE.test(v);
+      case "url": return v === "" || URL_RE.test(v);
+      case "message": return v.length >= 10;
+    }
+    return true;
+  }
+  function show(field, force) {
+    var ok = isValid(field);
+    if (force || field.dataset.touched) {
+      field.classList.toggle("invalid", !ok);
+      control(field).setAttribute("aria-invalid", ok ? "false" : "true");
+    }
+    return ok;
+  }
+  function allValid() { return fields.every(isValid); }
+  function refreshButton() {
+    var ready = allValid();
+    button.setAttribute("aria-disabled", ready ? "false" : "true");
+    hint.textContent = ready ? "" : "Fill in the required fields to send.";
+  }
+
+  fields.forEach(function (field) {
+    var c = control(field);
+    c.addEventListener("blur", function () { if (c.value.trim() !== "") field.dataset.touched = "1"; show(field); });
+    c.addEventListener("input", function () { show(field); refreshButton(); });
+  });
+  refreshButton();
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    status.textContent = "";
+    if (button.dataset.busy) return;
+
+    if (!allValid()) {
+      var firstBad = null;
+      fields.forEach(function (f) { f.dataset.touched = "1"; if (!show(f, true) && !firstBad) firstBad = f; });
+      if (firstBad) control(firstBad).focus();
+      return;
+    }
+
+    var v = function (id) { return document.getElementById(id).value.trim(); };
+    var data = { name: v("f-name"), email: v("f-email"), org: v("f-org"), website: v("f-site"), message: v("f-msg") };
+    var isBot = v("f-hp") !== "" || Date.now() - loadedAt < 3000;
+
+    var body = new URLSearchParams();
+    Object.keys(ENTRY).forEach(function (k) { body.append(ENTRY[k], data[k]); });
+
+    button.dataset.busy = "1";
+    button.textContent = "Sending…";
+
+    var send = isBot ? Promise.resolve() :
+      fetch(FORM_URL, { method: "POST", mode: "no-cors", body: body });
+
+    send.then(function () {
+      var first = data.name.split(/\s+/)[0];
+      var area = document.getElementById("form-area");
+      area.innerHTML =
+        '<div class="thanks" tabindex="-1" id="thanks">' +
+        '<h3>Thanks, <span></span>. Message received.</h3>' +
+        '<p>We’ll reply to <strong></strong> soon. In the meantime, nothing else is needed from you.</p>' +
+        '</div>';
+      var t = document.getElementById("thanks");
+      t.querySelector("h3 span").textContent = first;
+      t.querySelector("strong").textContent = data.email;
+      t.focus();
+    }).catch(function () {
+      delete button.dataset.busy;
+      button.textContent = "Send message";
+      status.textContent = "Something went wrong sending your message. Please check your connection and try again.";
+    });
+  });
+})();
+</script>
 </body>
 </html>
