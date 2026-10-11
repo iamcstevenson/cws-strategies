@@ -144,6 +144,21 @@ section h2{font-size:clamp(32px,4vw,44px);margin-top:12px}
 .js .reveal.pending{transform:translateY(18px);opacity:.35}
 @media (prefers-reduced-motion:reduce){.js .reveal.pending{transform:none;opacity:1}}
 
+/* process: a marker travels 1 → 4 and lights each step as it passes (8s loop) */
+.steps li::before{z-index:2}
+.steps::after{content:"";position:absolute;z-index:1;top:16px;left:16px;width:14px;height:14px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 6px rgba(28,117,186,.18),0 0 18px 4px rgba(28,117,186,.45);animation:cws-run 8s linear infinite}
+@keyframes cws-run{0%{left:16px;opacity:0}4%{opacity:1}75%{left:calc(3 * (100% - 72px) / 4 + 88px);opacity:1}82%,100%{left:calc(3 * (100% - 72px) / 4 + 88px);opacity:0}}
+.steps li::before{animation:cws-step 8s ease-out infinite}
+.steps li:nth-child(2)::before{animation-delay:2s}
+.steps li:nth-child(3)::before{animation-delay:4s}
+.steps li:nth-child(4)::before{animation-delay:6s}
+@keyframes cws-step{0%,7%{background:var(--blue);color:var(--white);transform:scale(1.1)}18%,100%{background:var(--white);color:var(--blue-ink);transform:scale(1)}}
+@media (max-width:860px){
+  .steps::after{animation-name:cws-run-v}
+  @keyframes cws-run-v{0%{top:16px;opacity:0}4%{opacity:1}75%{top:calc(100% - 30px);opacity:1}82%,100%{top:calc(100% - 30px);opacity:0}}
+}
+@media (prefers-reduced-motion:reduce){.steps::after{display:none}.steps li::before{animation:none}}
+
 /* about */
 .about{border-top:1px solid var(--line)}
 .about .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:56px}
